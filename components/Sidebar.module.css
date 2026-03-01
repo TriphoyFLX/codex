@@ -1,0 +1,670 @@
+/* Variables for easy color management */
+:root {
+  --sidebar-width: 280px;
+  --sidebar-collapsed-width: 80px;
+  --sidebar-bg-color: #ffffff;
+  --codex-purple-main: #5D45FD;
+  --codex-purple-light: rgba(93, 69, 253, 0.1);
+  --codex-purple-dark: #4a36d9;
+  --text-color: #4b4b4b;
+  --text-color-dark: #2d2d2d;
+  --light-text-color: #999999;
+  --active-bg-color: var(--codex-purple-main);
+  --active-text-color: #ffffff;
+  --icon-default-color: #a0a0a0;
+  --logo-color: #5540e0;
+  --bottom-navbar-height: 70px;
+  --transition-duration: 0.3s;
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Основной контейнер сайдбара */
+.sidebar {
+  height: 100vh;
+  background-color: var(--sidebar-bg-color);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: all var(--transition-duration) ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Свернутый сайдбар */
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width) !important;
+}
+
+/* Header (CODEX.STRIVE Title) */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 30px;
+  min-height: 52px;
+}
+
+.collapsed .header {
+  justify-content: center;
+  padding: 0;
+}
+
+.logoContainer {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.collapsed .logoContainer {
+  margin-right: 0;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--logo-color);
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Навигация */
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0 10px;
+}
+
+.collapsed .nav {
+  align-items: center;
+}
+
+/* Элементы навигации */
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.collapsed .navItem {
+  justify-content: center;
+  padding: 12px 0;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 8px;
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navItem svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+  color: var(--icon-default-color);
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.collapsed .navItem svg {
+  margin-right: 0;
+}
+
+.navItemText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity var(--transition-duration) ease;
+  line-height: 1.2;
+}
+
+.collapsed .navItemText {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Анимация текста при развертывании */
+.sidebar:not(.collapsed) .navItemText {
+  animation: fadeIn var(--transition-duration) ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.navItem:hover {
+  background-color: var(--codex-purple-light);
+  color: var(--codex-purple-main);
+}
+
+.navItem:hover svg {
+  color: var(--codex-purple-main);
+}
+
+/* Активный элемент */
+.navItem.active {
+  background-color: var(--active-bg-color);
+  color: var(--active-text-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(93, 69, 253, 0.3);
+}
+
+.navItem.active svg {
+  color: var(--active-text-color);
+}
+
+.navItem.active:hover {
+  background-color: var(--codex-purple-dark);
+  color: var(--active-text-color);
+}
+
+/* Индикатор активной страницы (полоска слева) */
+.navItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 0;
+  background: var(--codex-purple-main);
+  border-radius: 0 2px 2px 0;
+  transition: height 0.2s ease;
+}
+
+.navItem.active::before {
+  height: 20px;
+}
+
+.collapsed .navItem::before {
+  display: none;
+}
+
+/* Divider Line */
+.divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.08);
+  margin: 15px 25px;
+}
+
+.collapsed .divider {
+  width: 32px;
+  margin: 15px auto;
+}
+
+/* User Profile Block (Десктопная версия) */
+.userBlock {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  margin: 20px 20px 0 20px;
+  background-color: var(--active-bg-color);
+  border-radius: 10px;
+  color: var(--active-text-color);
+  box-shadow: 0 4px 10px rgba(93, 69, 253, 0.4);
+  transition: all var(--transition-duration) ease;
+  box-sizing: border-box;
+}
+
+.userBlock:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(93, 69, 253, 0.5);
+}
+
+.collapsed .userBlock {
+  display: none;
+}
+
+.userAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--active-text-color);
+  margin-right: 12px;
+  flex-shrink: 0;
+  background-color: #fff;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 1;
+}
+
+.userName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userRole {
+  font-size: 0.8rem;
+  font-weight: 400;
+  opacity: 0.8;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Свернутый блок пользователя */
+.collapsedUser {
+  margin-top: auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.collapsedAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--codex-purple-main);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  background-color: #fff;
+}
+
+.collapsedAvatar:hover {
+  transform: scale(1.1);
+}
+
+/* Кнопка сворачивания */
+.collapseButton {
+  position: absolute;
+  right: 10px;
+  top: 5%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: var(--codex-purple-main);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  z-index: 101;
+  padding: 0;
+}
+
+.collapseButton:hover {
+  background: var(--codex-purple-dark);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.collapsed .collapseButton {
+  right: -12px;
+}
+
+/* ================================================== */
+/* --- МОБИЛЬНАЯ ВЕРСИЯ (Bottom Navbar) --- */
+/* ================================================== */
+@media (max-width: 768px) {
+  .sidebar.mobile {
+    width: 100%;
+    height: calc(var(--bottom-navbar-height) + var(--safe-area-bottom));
+    flex-direction: row;
+    padding: 8px 16px 16px 16px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+    box-sizing: border-box;
+    border-top: 1px solid rgba(93, 69, 253, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    max-width: 100vw;
+    overflow: visible;
+  }
+
+  /* Скрываем лишние элементы на мобильных */
+  .mobile .header,
+  .mobile .userBlock,
+  .mobile .divider,
+  .mobile .collapseButton,
+  .mobile .collapsedUser {
+    display: none;
+  }
+
+  .mobile .nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    gap: 4px;
+    overflow: visible;
+  }
+
+  /* Элементы меню на мобильных */
+  .mobile .navItem {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 4px;
+    flex: 1;
+    min-width: 60px;
+    max-width: 80px;
+    margin: 0;
+    color: var(--light-text-color);
+    font-size: 0.7rem;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    height: 56px;
+  }
+
+  .mobile .navItem:hover {
+    background: transparent;
+    color: var(--light-text-color);
+  }
+
+  .mobile .navItem:hover svg {
+    color: var(--light-text-color);
+  }
+
+  .mobile .navItemText {
+    margin-top: 4px;
+    font-size: 0.6rem;
+    opacity: 1;
+    position: static;
+    width: auto;
+    height: auto;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: color 0.3s ease;
+  }
+
+  .mobile .navItem svg {
+    width: 22px;
+    height: 22px;
+    margin-right: 0;
+    margin-bottom: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .mobile .navItem .userAvatar {
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    margin: 0 0 4px 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Активный элемент на мобильных */
+  .mobile .navItem.active {
+    background: linear-gradient(135deg, var(--codex-purple-main) 0%, #7b5fff 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(93, 69, 253, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .mobile .navItem.active .userAvatar {
+    border: 2px solid white !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile .navItem.active svg {
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .mobile .navItem.active .navItemText {
+    color: white;
+    font-weight: 700;
+  }
+
+  /* Анимация для активного элемента */
+  @keyframes pulse {
+    0% { transform: translateY(-4px) scale(1); }
+    50% { transform: translateY(-4px) scale(1.05); }
+    100% { transform: translateY(-4px) scale(1); }
+  }
+
+  .mobile .navItem.active {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Убираем индикатор на мобильных */
+  .mobile .navItem::before {
+    display: none;
+  }
+}
+
+/* Мобильное модальное окно "Ещё" */
+.mobileMoreOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mobileMoreMenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border: 1px solid rgba(93, 69, 253, 0.1);
+  padding-bottom: calc(20px + var(--safe-area-bottom));
+}
+
+.mobileMoreHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(93, 69, 253, 0.08);
+  background: transparent;
+  border-radius: 24px 24px 0 0;
+  position: sticky;
+  top: 0;
+  background: inherit;
+  z-index: 1;
+}
+
+.mobileMoreHeader h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-color-dark);
+}
+
+.mobileMoreClose {
+  background: var(--codex-purple-light);
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--codex-purple-main);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 40px;
+  height: 40px;
+}
+
+.mobileMoreClose svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mobileMoreClose:hover,
+.mobileMoreClose:active {
+  background: var(--codex-purple-main);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(93, 69, 253, 0.3);
+}
+
+.mobileMoreContent {
+  padding: 8px 16px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobileMoreItem {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text-color-dark);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 16px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.mobileMoreItem:hover,
+.mobileMoreItem:active {
+  background: var(--codex-purple-light);
+  color: var(--codex-purple-main);
+  transform: translateX(4px);
+}
+
+.mobileMoreItem.active {
+  background: linear-gradient(135deg, var(--codex-purple-main) 0%, #7b5fff 100%);
+  color: white;
+  box-shadow: 0 6px 20px rgba(93, 69, 253, 0.3);
+  transform: translateX(4px);
+  border-color: var(--codex-purple-main);
+}
+
+.mobileMoreIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.mobileMoreItem svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.mobileMoreItem:hover svg,
+.mobileMoreItem:active svg {
+  transform: scale(1.1);
+}
+
+.mobileMoreItem.active svg {
+  color: white;
+  transform: scale(1.1);
+}
+
+.mobileMoreItem span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Прокрутка для iOS */
+.mobileMoreMenu::-webkit-scrollbar {
+  display: none;
+}
+
+.mobileMoreMenu {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Анимации */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптация для iPhone X и новее */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .sidebar.mobile {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+  
+  .mobileMoreMenu {
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  }
+}

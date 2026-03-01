@@ -1,0 +1,197 @@
+/* FollowManagement.module.css - Apple-style follow management */
+
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  min-height: auto;
+}
+
+.header {
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0 0 10px 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #d2d2d7;
+  padding-bottom: 0;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  border-radius: 12px 12px 0 0;
+  font-weight: 500;
+  color: #86868b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background: #f5f5f7;
+  color: #007aff;
+}
+
+.tab.active {
+  background: #007aff;
+  color: white;
+}
+
+.content {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px;
+  border: 1px solid #d2d2d7;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.userList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.userCard {
+  background: #ffffff;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.userCard:hover {
+  border-color: #007aff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f5f5f7;
+}
+
+.defaultAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #86868b;
+  border: 2px solid #f5f5f7;
+}
+
+.userDetails {
+  flex: 1;
+}
+
+.userName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0 0 4px 0;
+}
+
+.userDate {
+  font-size: 0.85rem;
+  color: #86868b;
+  margin: 0;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  gap: 16px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f5f5f7;
+  border-top: 3px solid #007aff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+}
+
+.emptyIcon {
+  color: #d2d2d7;
+  margin-bottom: 16px;
+}
+
+.emptyState h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0 0 8px 0;
+}
+
+.emptyState p {
+  color: #86868b;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+  
+  .tabs {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .userList {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .userCard {
+    padding: 12px;
+  }
+  
+  .userInfo {
+    gap: 8px;
+  }
+}

@@ -1,0 +1,268 @@
+.detailsContainer {
+  padding-top: 20px;
+  border-top: 1px solid #eaeaea;
+}
+
+.statsSection {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: var(--codex-purple-main);
+  color: white;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.statNumber {
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+}
+
+.card h3 {
+  margin: 0 0 16px 0;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputGroup label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.inputGroup input,
+.inputGroup textarea,
+.inputGroup select {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus,
+.inputGroup select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.chip {
+  background: #007bff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.chips input {
+  border: none;
+  background: transparent;
+  padding: 8px;
+  flex: 1;
+  min-width: 150px;
+}
+
+.badges {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: var(--codex-purple-main);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.portfolioInput {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.portfolioInput input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.addButton {
+  padding: 10px 16px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.addButton:hover {
+  background: #218838;
+}
+
+.portfolioList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.portfolioItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+}
+
+.portfolioItem a {
+  color: #007bff;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.portfolioItem a:hover {
+  text-decoration: underline;
+}
+
+.deleteButton {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.deleteButton:hover {
+  background: #c82333;
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.noteGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.noteGroup label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.noteGroup textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.visibility select {
+  width: 100%;
+  max-width: 300px;
+}
+
+.saveButton {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: all 0.2s ease;
+}
+
+.saveButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.saveButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .statsSection {
+    flex-direction: column;
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+  
+  .chips input {
+    min-width: 120px;
+  }
+}

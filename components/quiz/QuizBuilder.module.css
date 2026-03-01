@@ -1,0 +1,348 @@
+.quizBuilder {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  margin-top: 24px;
+}
+
+.builderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.builderHeader h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.addQuestionButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.addQuestionButton:hover {
+  background: #2563eb;
+}
+
+.emptyState {
+  padding: 40px 20px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.questionsList {
+  padding: 20px;
+}
+
+.questionCard {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.questionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.questionInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.dragHandle {
+  cursor: grab;
+  color: #9ca3af;
+  padding: 4px;
+}
+
+.dragHandle:hover {
+  color: #6b7280;
+}
+
+.questionNumber {
+  font-weight: 600;
+  color: #374151;
+  min-width: 80px;
+}
+
+.questionType {
+  padding: 6px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
+
+.pointsInput {
+  width: 60px;
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.pointsLabel {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.questionActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.expandButton,
+.moveButton,
+.deleteButton {
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.expandButton {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.expandButton:hover {
+  background: #e5e7eb;
+}
+
+.moveButton {
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moveButton:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.moveButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.deleteButton {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.deleteButton:hover {
+  background: #fee2e2;
+}
+
+.questionContent {
+  padding: 20px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.questionText {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.questionText:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.optionsContainer {
+  margin-bottom: 20px;
+}
+
+.optionRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.optionRow input[type="radio"] {
+  width: 16px;
+  height: 16px;
+}
+
+.optionInput {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.optionInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.correctIndicator {
+  color: #059669;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.addOptionButton {
+  padding: 8px 12px;
+  background: #f3f4f6;
+  border: 1px dashed #d1d5db;
+  border-radius: 6px;
+  color: #6b7280;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.addOptionButton:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.trueFalseContainer {
+  margin-bottom: 20px;
+}
+
+.trueFalseOptions {
+  display: flex;
+  gap: 20px;
+}
+
+.trueFalseOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.trueFalseOption input[type="radio"] {
+  width: 16px;
+  height: 16px;
+}
+
+.shortAnswerContainer {
+  margin-bottom: 20px;
+}
+
+.shortAnswerInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.shortAnswerInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.explanationText {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.explanationText:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.builderFooter {
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.summary {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.summary span {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .questionHeader {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .questionInfo {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .questionActions {
+    justify-content: flex-end;
+  }
+
+  .trueFalseOptions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .summary {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

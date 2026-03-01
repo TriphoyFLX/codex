@@ -1,0 +1,67 @@
+.appContainer {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 18px;
+  color: #666;
+  background: #f8f9fa;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease;
+}
+
+.contentMobile {
+  margin-left: 0;
+  padding-bottom: 80px;
+}
+
+.contentDesktop {
+  margin-left: 280px;
+}
+
+.contentCollapsed {
+  margin-left: 80px;
+}
+
+.noSidebar {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .appContainer {
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    padding: 10px;
+    padding-bottom: 80px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  .contentMobile,
+  .contentDesktop,
+  .contentCollapsed,
+  .noSidebar {
+    margin-left: 0;
+  }
+}

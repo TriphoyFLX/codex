@@ -1,0 +1,478 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0;
+  color: #333;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.addButton:hover {
+  background: #45a049;
+}
+
+.modules {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.module {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+}
+
+.moduleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.moduleInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+}
+
+.expandButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expandButton:hover {
+  background: #e0e0e0;
+}
+
+.moduleIcon {
+  color: #6c757d;
+  margin-top: 2px;
+}
+
+.moduleInfo h3 {
+  margin: 0 0 4px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.moduleInfo p {
+  margin: 0 0 8px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.moduleStats {
+  display: flex;
+  gap: 15px;
+  font-size: 12px;
+  color: #666;
+}
+
+.published {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.draft {
+  color: #ffc107;
+  font-weight: 500;
+}
+
+.moduleActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.moduleActions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moduleActions button:hover {
+  background: #e0e0e0;
+}
+
+.publishButton {
+  font-size: 14px !important;
+  padding: 6px 8px !important;
+  background: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+
+.publishButton:hover {
+  background: #e9ecef !important;
+  transform: scale(1.05);
+}
+
+.addLessonButton {
+  background: #007bff !important;
+  color: white !important;
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+}
+
+.addLessonButton:hover {
+  background: #0056b3 !important;
+}
+
+.lessons {
+  padding: 0;
+}
+
+.lesson {
+  border-bottom: 1px solid #eee;
+}
+
+.lesson:last-child {
+  border-bottom: none;
+}
+
+.lessonHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.lessonInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1;
+}
+
+.lessonIcon {
+  color: #6c757d;
+  margin-top: 2px;
+}
+
+.lessonInfo h4 {
+  margin: 0 0 4px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.lessonInfo p {
+  margin: 0 0 6px 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.lessonStats {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: #666;
+  align-items: center;
+}
+
+.lessonStats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.freeBadge {
+  background: #e8f5e8;
+  color: #28a745;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.lessonActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lessonActions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lessonActions button:hover {
+  background: #e0e0e0;
+}
+
+.lessonActions .publishButton {
+  font-size: 12px !important;
+  padding: 4px 6px !important;
+  background: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+
+.lessonActions .publishButton:hover {
+  background: #e9ecef !important;
+  transform: scale(1.05);
+}
+
+.materials {
+  padding: 0 20px 20px 20px;
+  background: #f8f9fa;
+}
+
+.materialsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.materialsHeader h5 {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.uploadButton {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.uploadButton:hover {
+  background: #218838;
+}
+
+.uploading {
+  padding: 10px;
+  background: #e3f2fd;
+  border-radius: 6px;
+  color: #1976d2;
+  font-size: 13px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.material {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.materialInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1;
+}
+
+.materialIcon {
+  color: #6c757d;
+  margin-top: 2px;
+}
+
+.materialInfo h6 {
+  margin: 0 0 2px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.fileName {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+}
+
+.materialActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.materialLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.materialLink:hover {
+  background: #e0e0e0;
+}
+
+.materialActions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc3545;
+}
+
+.materialActions button:hover {
+  background: #e0e0e0;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modalContent h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.modalContent form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modalContent input,
+.modalContent textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modalContent textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.modalActions button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modalActions button[type="button"] {
+  background: white;
+  color: #666;
+}
+
+.modalActions button[type="submit"] {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.modalActions button[type="submit"]:hover {
+  background: #0056b3;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 16px;
+}

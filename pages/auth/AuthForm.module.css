@@ -1,0 +1,951 @@
+/* Базовые стили */
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 700px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Левая панель - форма */
+.leftPanel {
+  flex: 0 0 480px;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.logo {
+  color: #5D3FD3;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #5D3FD3, #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.slogan {
+  color: #1A1A1A;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.slogan br {
+  display: none;
+}
+
+/* Секция Google */
+.googleAuthSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.googleButton {
+  background-color: #ffffff;
+  border: 2px solid #E5E7EB;
+  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.googleButton:hover {
+  border-color: #5D3FD3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(93, 63, 211, 0.2);
+}
+
+.googleButton:active {
+  transform: translateY(0);
+}
+
+.orText {
+  color: #6B7280;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Форма */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputGroup {
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #E5E7EB;
+  border-radius: 12px;
+  background-color: #ffffff;
+  font-size: 16px;
+  color: #1F2937;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  height: 56px;
+}
+
+.input::placeholder {
+  color: #9CA3AF;
+}
+
+.input:focus {
+  border-color: #5D3FD3;
+  box-shadow: 0 0 0 3px rgba(93, 63, 211, 0.1);
+}
+
+.input.error {
+  border-color: #EF4444;
+}
+
+/* Пароль */
+.passwordWrapper {
+  position: relative;
+}
+
+.showPassword {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  color: #6B7280;
+  transition: color 0.2s;
+  z-index: 2;
+}
+
+.showPassword:hover {
+  color: #5D3FD3;
+}
+
+/* Кнопка */
+.button {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #5D3FD3, #8B5CF6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(93, 63, 211, 0.3);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.buttonLoading {
+  background: linear-gradient(135deg, #7C6AED, #7C6AED);
+}
+
+.buttonLoading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Ошибки и успех */
+.fieldError {
+  color: #EF4444;
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+  font-weight: 500;
+}
+
+.error {
+  color: #EF4444;
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  background: #FEF2F2;
+  border-radius: 8px;
+  border: 1px solid #FECACA;
+}
+
+.success {
+  color: #10B981;
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  background: #ECFDF5;
+  border-radius: 8px;
+  border: 1px solid #A7F3D0;
+}
+
+/* Выбор роли */
+.roleSelector {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0;
+  padding: 12px;
+  background: #F9FAFB;
+  border-radius: 12px;
+}
+
+.roleOption {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6B7280;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.roleOption:hover {
+  background: #ffffff;
+  color: #5D3FD3;
+}
+
+.roleOption input[type="radio"] {
+  display: none;
+}
+
+.roleOption span {
+  position: relative;
+  padding-left: 28px;
+}
+
+.roleOption span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid #D1D5DB;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.roleOption input[type="radio"]:checked + span {
+  color: #5D3FD3;
+  font-weight: 600;
+}
+
+.roleOption input[type="radio"]:checked + span::before {
+  border-color: #5D3FD3;
+  background: #5D3FD3;
+  box-shadow: inset 0 0 0 3px white;
+}
+
+/* Условия */
+.termsContainer {
+  margin: 12px 0;
+  padding: 12px;
+  background: #F9FAFB;
+  border-radius: 12px;
+}
+
+.termsLabel {
+  display: flex;
+  align-items: flex-start;
+  font-size: 14px;
+  color: #6B7280;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.termsLabel input {
+  margin: 3px 10px 0 0;
+  cursor: pointer;
+  min-width: 16px;
+  min-height: 16px;
+}
+
+.termsLink {
+  color: #5D3FD3;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.termsLink:hover {
+  color: #4C1D95;
+}
+
+.hint {
+  color: #6B7280;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  font-style: italic;
+}
+
+/* Запомнить/забыли */
+.rememberForgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.rememberLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.rememberLabel input {
+  cursor: pointer;
+}
+
+.forgotLink {
+  color: #5D3FD3;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.forgotLink:hover {
+  color: #4C1D95;
+  text-decoration: underline;
+}
+
+/* Переключение режима */
+.switchText {
+  text-align: center;
+  color: #6B7280;
+  font-size: 14px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.switchLink {
+  color: #5D3FD3;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.switchLink:hover {
+  color: #4C1D95;
+  background: #F3F4F6;
+}
+
+/* Правая панель */
+.rightPanel {
+  flex: 1;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 24px 24px 0;
+}
+
+.rightPanel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(93, 63, 211, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Инфо-пузыри */
+.infoBubbleTop,
+.infoBubbleBottom {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  color: #fff;
+  padding: 20px 30px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  z-index: 2;
+  min-width: 180px;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+
+.infoBubbleTop {
+  top: 120px;
+  left: 60px;
+  animation-delay: 0s;
+}
+
+.infoBubbleBottom {
+  bottom: 120px;
+  right: 60px;
+  animation-delay: 1.5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.infoBubbleTop strong,
+.infoBubbleBottom strong {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 22px;
+}
+
+.bubbleDot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, #5D3FD3, #8B5CF6);
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: 0 0 20px rgba(93, 63, 211, 0.5);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.infoBubbleTop .bubbleDot {
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.infoBubbleBottom .bubbleDot {
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Успех overlay */
+.successOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+.successOverlay h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #5D3FD3, #8B5CF6, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px rgba(93, 63, 211, 0.5);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.7),
+                 0 0 40px rgba(139, 92, 246, 0.5);
+  }
+}
+
+.teacherNote {
+  font-size: 18px;
+  color: #A5B4FC;
+  background: rgba(139, 92, 246, 0.1);
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  margin-top: 20px;
+}
+
+/* Burst эффект */
+.rightPanel.burst {
+  animation: burst 1.2s ease-out;
+}
+
+@keyframes burst {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.02); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 0;
+    background: #ffffff;
+  }
+  
+  .container {
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  .mobileContainer {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .leftPanel {
+    flex: 1;
+    padding: 32px 24px;
+    width: 100%;
+  }
+  
+  .mobileLeftPanel {
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  
+  .slogan {
+    font-size: 24px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  
+  .slogan br {
+    display: block;
+  }
+  
+  .googleAuthSection {
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .googleButton {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
+  }
+  
+  .orText {
+    margin-bottom: 20px;
+  }
+  
+  .mobileForm {
+    gap: 12px;
+  }
+  
+  .input {
+    height: 52px;
+    font-size: 16px;
+  }
+  
+  .button {
+    padding: 16px;
+    font-size: 16px;
+    margin-top: 4px;
+  }
+  
+  .mobileRoleSelector {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .roleOption {
+    padding: 12px;
+  }
+  
+  .mobileRememberForgot {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .termsContainer {
+    padding: 16px;
+  }
+  
+  .termsLabel {
+    font-size: 13px;
+  }
+  
+  .switchText {
+    font-size: 14px;
+    margin-top: 32px;
+  }
+  
+  /* Скрываем правую панель на мобилке */
+  .rightPanel {
+    display: none;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 375px) {
+  .leftPanel {
+    padding: 24px 20px;
+  }
+  
+  .slogan {
+    font-size: 20px;
+  }
+  
+  .input {
+    height: 48px;
+    padding: 14px 16px;
+  }
+  
+  .button {
+    padding: 14px;
+  }
+  
+  .termsLabel {
+    font-size: 12px;
+  }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Плавное появление элементов формы */
+.form > * {
+  animation: fadeIn 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.form > *:nth-child(1) { animation-delay: 0.1s; }
+.form > *:nth-child(2) { animation-delay: 0.2s; }
+.form > *:nth-child(3) { animation-delay: 0.3s; }
+.form > *:nth-child(4) { animation-delay: 0.4s; }
+.form > *:nth-child(5) { animation-delay: 0.5s; }
+.form > *:nth-child(6) { animation-delay: 0.6s; }
+.form > *:nth-child(7) { animation-delay: 0.7s; }
+.form > *:nth-child(8) { animation-delay: 0.8s; }
+
+/* Модальное окно */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modalHeader {
+  padding: 24px 32px;
+  border-bottom: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  color: #1F2937;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #6B7280;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: #F3F4F6;
+  color: #1F2937;
+}
+
+.modalBody {
+  padding: 32px;
+  overflow-y: auto;
+  max-height: calc(80vh - 90px);
+}
+
+.termsContent {
+  color: #374151;
+  line-height: 1.6;
+}
+
+.termsContent h3 {
+  color: #1F2937;
+  font-size: 20px;
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+
+.termsContent h4 {
+  color: #1F2937;
+  font-size: 16px;
+  margin: 24px 0 12px 0;
+  font-weight: 600;
+}
+
+.termsContent p {
+  margin: 0 0 16px 0;
+}
+
+.termsContent ul {
+  margin: 0 0 16px 20px;
+  padding: 0;
+}
+
+.termsContent li {
+  margin-bottom: 8px;
+}
+
+.termsContent a {
+  color: #5D3FD3;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.termsContent a:hover {
+  text-decoration: underline;
+}
+
+.modalActions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.acceptButton {
+  flex: 1;
+  padding: 16px;
+  background: linear-gradient(135deg, #5D3FD3, #8B5CF6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.acceptButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(93, 63, 211, 0.3);
+}
+
+.declineButton {
+  flex: 1;
+  padding: 16px;
+  background: #ffffff;
+  color: #6B7280;
+  border: 2px solid #E5E7EB;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.declineButton:hover {
+  border-color: #D1D5DB;
+  background: #F9FAFB;
+}
+
+/* Password Strength */
+.passwordStrength {
+  margin: 12px 0;
+  padding: 16px;
+  background: #F9FAFB;
+  border-radius: 12px;
+}
+
+.strengthInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.strengthLabel {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.strengthBars {
+  display: flex;
+  width: 120px;
+  height: 6px;
+  background: #E5E7EB;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.requirements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.requirements span {
+  font-size: 12px;
+  color: #6B7280;
+  padding: 4px 8px;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #E5E7EB;
+}
+
+/* Для мобильных модалок */
+@media (max-width: 640px) {
+  .modalContent {
+    max-height: 90vh;
+    border-radius: 16px;
+  }
+  
+  .modalHeader {
+    padding: 20px 24px;
+  }
+  
+  .modalHeader h2 {
+    font-size: 20px;
+  }
+  
+  .modalBody {
+    padding: 24px;
+    max-height: calc(90vh - 84px);
+  }
+  
+  .modalActions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .acceptButton,
+  .declineButton {
+    width: 100%;
+  }
+}

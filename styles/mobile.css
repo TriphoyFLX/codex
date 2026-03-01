@@ -1,0 +1,84 @@
+/* Глобальные стили для фиксации мобильного макета */
+
+/* Базовые стили для предотвращения горизонтального скролла */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+  
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+  
+  /* Предотвращаем горизонтальный скролл для всех элементов */
+  * {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  /* Особые стили для изображений и медиа */
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Текст не должен вызывать горизонтальный скролл */
+  p, h1, h2, h3, h4, h5, h6, span, div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+  
+  /* Таблицы на мобильных */
+  table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+  
+  /* Предотвращаем скролл для flex контейнеров */
+  .flex-container {
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+}

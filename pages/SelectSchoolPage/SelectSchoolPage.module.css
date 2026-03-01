@@ -1,0 +1,495 @@
+/* src/pages/SelectSchoolPage/SelectSchoolPage.module.css */
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #007aff, #5856d6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #86868b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Секция поиска */
+.searchContainer {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.searchBox {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #86868b;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  border: 2px solid #e5e5ea;
+  border-radius: 16px;
+  font-size: 16px;
+  transition: all 0.2s;
+  background: #f8f9fa;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #007aff;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cityFilter {
+  padding: 12px 16px;
+  border: 2px solid #e5e5ea;
+  border-radius: 12px;
+  font-size: 16px;
+  background: white;
+  min-width: 200px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.cityFilter:focus {
+  outline: none;
+  border-color: #007aff;
+}
+
+.codeButton {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #34c759, #32d74b);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.codeButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(52, 199, 89, 0.3);
+}
+
+/* Список школ */
+.schoolsList {
+  margin-top: 30px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  gap: 16px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e5e5ea;
+  border-top-color: #007aff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.noResults {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.noResultsIcon {
+  color: #86868b;
+  margin-bottom: 20px;
+}
+
+.noResults h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+}
+
+.noResults p {
+  color: #86868b;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* Карточки школ */
+.schoolCard {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.schoolCard:hover {
+  transform: translateY(-4px);
+  border-color: #007aff;
+  box-shadow: 0 12px 32px rgba(0, 122, 255, 0.15);
+}
+
+.schoolHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.schoolHeader h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.schoolNumber {
+  background: #f0f0f0;
+  color: #86868b;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.schoolInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.schoolInfoItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #515154;
+}
+
+.schoolInfoItem svg {
+  color: #86868b;
+  flex-shrink: 0;
+}
+
+.schoolActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #86868b;
+  transition: color 0.2s;
+}
+
+.schoolCard:hover .schoolActions {
+  color: #007aff;
+}
+
+/* Модальные окна */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.codeModal,
+.createSchoolModal {
+  background: white;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.createSchoolModal {
+  max-width: 600px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-bottom: 1px solid #f2f2f7;
+  background: #f8f9fa;
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1d1d1f;
+}
+
+.modalClose {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #8e8e93;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.modalClose:hover {
+  background: #e5e5ea;
+}
+
+.modalContent {
+  padding: 32px;
+}
+
+.modalText {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.codeInputGroup {
+  margin-bottom: 32px;
+}
+
+.codeInput {
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-align: center;
+  border: 3px solid #e5e5ea;
+  border-radius: 16px;
+  background: #f8f9fa;
+  font-family: 'Courier New', monospace;
+  transition: all 0.2s;
+}
+
+.codeInput:focus {
+  outline: none;
+  border-color: #007aff;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+}
+
+.codeError {
+  color: #ff3b30;
+  font-size: 14px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.modalCancel,
+.formCancel {
+  padding: 14px 28px;
+  border: 2px solid #e5e5ea;
+  background: white;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modalCancel:hover,
+.formCancel:hover {
+  background: #f8f9fa;
+  border-color: #d1d1d6;
+}
+
+.modalSubmit,
+.formSubmit {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #007aff, #5856d6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modalSubmit:hover,
+.formSubmit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 122, 255, 0.3);
+}
+
+/* Форма создания школы */
+.createSchoolForm {
+  padding: 32px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.formInput {
+  padding: 14px 16px;
+  border: 2px solid #e5e5ea;
+  border-radius: 12px;
+  font-size: 16px;
+  background: white;
+  transition: all 0.2s;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #007aff;
+  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+}
+
+.formNote {
+  margin: 24px 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #007aff;
+}
+
+.formNote p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #f2f2f7;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .searchContainer {
+    padding: 20px;
+  }
+
+  .schoolCard {
+    padding: 20px;
+  }
+
+  .schoolHeader h3 {
+    font-size: 18px;
+  }
+
+  .schoolInfoItem {
+    font-size: 13px;
+  }
+}

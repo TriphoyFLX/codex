@@ -1,0 +1,161 @@
+.verifySchool {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.verifiedTag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #28a745;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.schoolSelection {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.schoolSelect {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.addSchoolButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.addSchoolButton:hover {
+  background: #545b62;
+}
+
+.addSchoolForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+}
+
+.addSchoolForm input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.formActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.formActions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.formActions button:first-child {
+  background: #6c757d;
+  color: white;
+}
+
+.formActions button:first-child:hover {
+  background: #545b62;
+}
+
+.confirmButton {
+  background: #007bff !important;
+  color: white;
+}
+
+.confirmButton:hover:not(:disabled) {
+  background: #0056b3 !important;
+}
+
+.confirmButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.currentSchool {
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+  font-size: 0.9rem;
+}
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+
+@media (max-width: 768px) {
+  .schoolSelection {
+    flex-direction: column;
+  }
+  
+  .addSchoolButton {
+    justify-content: center;
+  }
+}

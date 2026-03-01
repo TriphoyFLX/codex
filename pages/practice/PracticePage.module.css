@@ -1,0 +1,543 @@
+/* Чистая белая тема Apple */
+:root {
+  --apple-blue: #007AFF;
+  --apple-blue-light: rgba(0, 122, 255, 0.1);
+  --apple-gray-1: #F2F2F7;
+  --apple-gray-2: #E5E5EA;
+  --apple-gray-3: #D1D1D6;
+  --apple-gray-4: #8E8E93;
+  --apple-gray-5: #3A3A3C;
+  --apple-gray-6: #1C1C1E;
+  --white: #FFFFFF;
+  --card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05), 
+                  0px 4px 12px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0px 6px 24px rgba(0, 0, 0, 0.08),
+                       0px 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* Основной контейнер */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Шапка */
+.header {
+  width: 100%;
+
+  margin-bottom: 56px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.logoSection {
+  margin-bottom: 40px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background-color: var(--apple-gray-1);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo:hover {
+  background-color: var(--apple-blue-light);
+  transform: translateY(-1px);
+}
+
+.logoText {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--apple-blue);
+  letter-spacing: -0.24px;
+}
+
+.headerContent {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--apple-gray-6);
+  margin-bottom: 12px;
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+}
+
+.titleHighlight {
+  color: var(--apple-blue);
+  position: relative;
+  display: inline-block;
+}
+
+.titleHighlight::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-color: rgba(0, 122, 255, 0.15);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.subtitle {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--apple-gray-4);
+  line-height: 1.5;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Контейнер режимов */
+.modesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Карточка режима */
+.modeCard {
+  background-color: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: 1px solid var(--apple-gray-2);
+  box-shadow: var(--card-shadow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.modeCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.modeCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--apple-gray-3);
+}
+
+.modeCard:hover::after {
+  border-color: var(--apple-blue);
+}
+
+.cardHovered {
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.cardContent {
+  padding: 32px;
+  flex-grow: 1;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.modeIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  background-color: var(--apple-gray-1);
+  color: var(--apple-blue);
+}
+
+.gameIcon {
+  background-color: rgba(0, 122, 255, 0.08);
+}
+
+.practiceIcon {
+  background-color: rgba(88, 86, 214, 0.08);
+  color: #5856D6;
+}
+
+.modeCard:hover .modeIcon {
+  transform: scale(1.08);
+}
+
+.modeTitleWrapper {
+  flex: 1;
+  text-align: left;
+}
+
+.modeTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--apple-gray-6);
+  margin-bottom: 4px;
+  letter-spacing: -0.44px;
+  line-height: 1.2;
+}
+
+.modeSubtitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--apple-gray-4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Описание режима */
+.modeDescription {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--apple-gray-5);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+/* Особенности */
+.modeFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background-color: var(--apple-gray-1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.modeCard:hover .feature {
+  background-color: rgba(0, 122, 255, 0.04);
+  transform: translateX(2px);
+}
+
+.featureIconWrapper {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.featureIcon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.featureText {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--apple-gray-6);
+  flex: 1;
+}
+
+/* Футер карточки */
+.cardFooter {
+  padding: 20px 32px 32px;
+  border-top: 1px solid var(--apple-gray-1);
+  margin-top: auto;
+}
+
+.startButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background-color: var(--white);
+  color: var(--apple-blue);
+  border: 1.5px solid var(--apple-gray-2);
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.startButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--apple-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.startButton:hover {
+  color: var(--white);
+  border-color: var(--apple-blue);
+}
+
+.startButton:hover::before {
+  transform: scaleX(1);
+}
+
+.startButton:hover .buttonIcon {
+  transform: translateX(3px);
+}
+
+.buttonText {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.buttonIcon {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+/* Футер страницы */
+.footer {
+  width: 100%;
+  max-width: 640px;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.footerContent {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--apple-gray-1);
+}
+
+.footerText {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--apple-gray-4);
+  padding: 10px 20px;
+  background-color: var(--apple-gray-1);
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  font-weight: 400;
+}
+
+.footerText:hover {
+  background-color: rgba(0, 122, 255, 0.08);
+  color: var(--apple-blue);
+}
+
+.footerIcon {
+  flex-shrink: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .container {
+    padding: 32px 20px 24px;
+  }
+  
+  .title {
+    font-size: 32px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+  }
+  
+  .modesContainer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+  }
+  
+  .cardContent {
+    padding: 24px;
+  }
+  
+  .cardFooter {
+    padding: 16px 24px 24px;
+  }
+  
+  .modeCard {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .featureText {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 24px 16px;
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+  
+  .subtitle {
+    font-size: 15px;
+  }
+  
+  .logo {
+    padding: 6px 12px;
+  }
+  
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .modeIcon {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .modeTitle {
+    font-size: 20px;
+  }
+  
+  .startButton {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+}
+
+/* Микро-анимации */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modeCard {
+  animation: cardEntrance 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.modeCard:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.modeCard:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/* Эффект при нажатии */
+@keyframes buttonTap {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.startButton:active {
+  animation: buttonTap 0.2s ease;
+}
+
+/* Плавный скролл */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Улучшение фокуса для доступности */
+.startButton:focus-visible,
+.modeCard:focus-visible {
+  outline: 2px solid var(--apple-blue);
+  outline-offset: 2px;
+}
+
+/* Стилизация скроллбара */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--apple-gray-1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--apple-gray-3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--apple-gray-4);
+}
+
+/* Декоративные элементы */
+.container::after {
+  content: '';
+  position: absolute;
+  top: 120px;
+  right: 5%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(0, 122, 255, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Плавные переходы для всех интерактивных элементов */
+a, button, .modeCard, .logo {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

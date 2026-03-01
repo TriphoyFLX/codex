@@ -1,0 +1,448 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.backButton:hover {
+  color: #007bff;
+}
+
+.courseInfo h1 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 28px;
+}
+
+.courseInfo p {
+  margin: 0 0 20px 0;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.progress {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745, #20c997);
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.modulesList {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  overflow: hidden;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modulesList h2 {
+  margin: 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 18px;
+  color: #333;
+}
+
+.module {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.module:last-child {
+  border-bottom: none;
+}
+
+.moduleHeader {
+  background: #f8f9fa;
+}
+
+.expandButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.expandButton:hover {
+  background: #e9ecef;
+}
+
+.expandButton span:first-of-type {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.moduleStats {
+  font-size: 12px;
+  color: #666;
+  background: #e9ecef;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.lessons {
+  background: white;
+}
+
+.lesson {
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.lesson:last-child {
+  border-bottom: none;
+}
+
+.lesson.completed {
+  background: #f8fff9;
+}
+
+.lesson.active {
+  background: #e3f2fd;
+}
+
+.lessonButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px 12px 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.lessonButton:hover {
+  background: rgba(0, 123, 255, 0.05);
+}
+
+.lessonInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.lessonInfo h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.completedIcon {
+  color: #28a745;
+}
+
+.freeIcon {
+  color: #17a2b8;
+}
+
+.lockedIcon {
+  color: #6c757d;
+}
+
+.lessonContent {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  overflow: hidden;
+}
+
+.lessonViewer {
+  padding: 30px;
+}
+
+.lessonHeader h2 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.lessonHeader p {
+  margin: 0 0 20px 0;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.videoPlayer {
+  margin-bottom: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  max-height: 500px;
+  background: #000;
+}
+
+.lessonText {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+  line-height: 1.6;
+  color: #333;
+}
+
+.materials {
+  margin-bottom: 30px;
+}
+
+.materials h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.material {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.materialInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.materialInfo span:first-of-type {
+  font-weight: 500;
+  color: #333;
+}
+
+.fileName {
+  color: #666;
+  font-size: 12px;
+}
+
+.materialActions {
+  display: flex;
+  gap: 10px;
+}
+
+.materialLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+
+.materialLink:hover {
+  background: #0056b3;
+}
+
+.lessonActions {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.completeButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.completeButton:hover {
+  background: #218838;
+}
+
+.completeButton.completed {
+  background: #6c757d;
+}
+
+.completeButton.completed:hover {
+  background: #5a6268;
+}
+
+.selectLesson {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 30px;
+  text-align: center;
+  color: #666;
+}
+
+.selectLesson svg {
+  margin-bottom: 20px;
+  color: #6c757d;
+}
+
+.selectLesson h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 20px;
+}
+
+.selectLesson p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px;
+  font-size: 1.2rem;
+  color: #6b7280;
+}
+
+.error {
+  text-align: center;
+  padding: 60px;
+  color: #dc3545;
+  font-size: 1.2rem;
+}
+
+.accessDenied {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  text-align: center;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 2px dashed #cbd5e1;
+  color: #6b7280;
+}
+
+.accessDenied svg {
+  color: #9ca3af;
+  margin-bottom: 20px;
+}
+
+.accessDenied h2 {
+  color: #374151;
+  font-size: 1.8rem;
+  margin: 20px 0 10px 0;
+}
+
+.accessDenied p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin: 0 0 30px 0;
+  line-height: 1.5;
+}
+
+.accessButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.accessButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .modulesList {
+    max-height: 400px;
+  }
+}

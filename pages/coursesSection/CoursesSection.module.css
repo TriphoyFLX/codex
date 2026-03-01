@@ -1,0 +1,268 @@
+.coursesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  font-family: 'Inter', sans-serif; /* Или твой шрифт */
+}
+
+.coursesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.coursesHeader h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+}
+
+/* Кнопка добавления */
+.addCourseButton {
+  padding: 12px 24px;
+  background: #5644FF;
+  color: white;
+  border-radius: 14px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.addCourseButton:hover { background: #4536cc; transform: scale(1.02); }
+
+/* --- ФОРМА --- */
+.addCourseForm {
+  background: #fff;
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+}
+.rowInputs { display: flex; gap: 15px; }
+.rowInputs input { flex: 1; }
+
+/* Загрузка изображения */
+.imageUploadSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fileInput {
+  padding: 12px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.fileInput:hover {
+  border-color: #5644FF;
+}
+
+.imagePreview {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+.imagePreview img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+}
+
+.removeImage {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.removeImage:hover {
+  background: #cc0000;
+}
+
+.addCourseForm input, .addCourseForm textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: #f5f5f7;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+}
+.addCourseForm input:focus, .addCourseForm textarea:focus {
+  background: #fff;
+  border-color: #5644FF;
+  box-shadow: 0 0 0 4px rgba(86, 68, 255, 0.1);
+}
+.formActions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 10px; }
+.cancelButton { background: transparent; border: 1px solid #ddd; padding: 10px 20px; border-radius: 10px; cursor: pointer; }
+.confirmButton { background: #28a745; color: white; border: none; padding: 10px 25px; border-radius: 10px; font-weight: 600; cursor: pointer; }
+
+/* --- СЕТКА КАРТОЧЕК --- */
+.cardsWrapper {
+  display: grid;
+  /* Строго две колонки, как просил */
+  grid-template-columns: 1fr 1fr; 
+  gap: 24px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .cardsWrapper { grid-template-columns: 1fr; }
+}
+
+/* --- САМА КАРТОЧКА --- */
+.courseCard {
+  position: relative;
+  /* Фиксированная высота для "широкого" вида */
+  height: 280px; 
+  border-radius: 20px; /* Сильное скругление как на фото */
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background: #000;
+  isolation: isolate;
+}
+
+/* Фон картинки */
+.cardBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cardBackground img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.courseCard:hover .cardBackground img { transform: scale(1.08); }
+
+.placeholderGradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3c1053, #ad5389);
+}
+
+/* Градиент оверлей - СУТЬ дизайна */
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  /* Градиент: прозрачный сверху -> фиолетовый снизу */
+  background: linear-gradient(
+    180deg, 
+    rgba(30, 10, 60, 0.1) 0%, 
+    rgba(60, 20, 180, 0.4) 40%, 
+    rgba(86, 68, 255, 0.9) 100%
+  );
+  z-index: 1;
+}
+
+/* Внутренний контент */
+.cardInner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Теги (Pills) сверху */
+.topTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  background: rgba(86, 68, 255, 0.9); /* Яркий фиолетовый фон плашек */
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(4px);
+}
+.inactive { background: #dc3545; }
+
+/* Нижняя часть */
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: white;
+}
+
+.textContent h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.textContent p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  max-width: 90%;
+}
+
+/* Кнопка со стрелкой */
+.iconWrapper {
+  min-width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.arrowIcon {
+  color: #5644FF; /* Фиолетовая стрелка */
+  stroke-width: 2.5px;
+}
+
+.courseCard:hover .iconWrapper {
+  transform: rotate(45deg); /* Поворот стрелки при наведении */
+}

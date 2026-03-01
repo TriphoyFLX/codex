@@ -1,0 +1,492 @@
+/* AdminApplications.module.css */
+
+.adminContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #86868b;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Search Container */
+.searchContainer {
+  position: relative;
+  width: 300px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #86868b;
+  transition: color 0.2s ease;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.8rem;
+  border: 1px solid #e5e5e7;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.searchInput:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #a1a1a8;
+}
+
+/* Stats Container */
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.statCard {
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
+  border-color: #e5e5e7;
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+.statContent {
+  flex: 1;
+}
+
+.statNumber {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1d1d1f;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #86868b;
+  font-weight: 400;
+}
+
+/* Applications List */
+.applicationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Application Card */
+.applicationCard {
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 24px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.applicationCard:hover {
+  border-color: #e5e5e7;
+  box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+  transform: scale(1.01);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.courseInfo {
+  flex: 1;
+}
+
+.courseName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+}
+
+.applicantInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.applicantName {
+  font-weight: 500;
+  color: #1d1d1f;
+  font-size: 1rem;
+}
+
+.applicantEmail {
+  font-size: 0.9rem;
+  color: #86868b;
+}
+
+/* Status Badge */
+.statusContainer {
+  margin-left: 1rem;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: #f5f5f7;
+  color: #1d1d1f;
+  transition: all 0.2s ease;
+}
+
+.statusBadge[data-status="pending"] {
+  background: #fff7e6;
+  color: #b85c00;
+}
+
+.statusBadge[data-status="approved"] {
+  background: #e6f7ed;
+  color: #1e7b4c;
+}
+
+.statusBadge[data-status="rejected"] {
+  background: #fee9e9;
+  color: #b33a3a;
+}
+
+/* Card Content */
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contactInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #515154;
+}
+
+.contactIcon {
+  color: #86868b;
+  min-width: 16px;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.approveButton,
+.rejectButton,
+.viewCourseButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 980px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  outline: none;
+}
+
+.approveButton {
+  background: #0071e3;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.2);
+}
+
+.approveButton:hover {
+  background: #0077ed;
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 113, 227, 0.3);
+}
+
+.approveButton:active {
+  transform: scale(0.98);
+}
+
+.rejectButton {
+  background: #ffffff;
+  color: #b33a3a;
+  border: 1px solid #e5e5e7;
+}
+
+.rejectButton:hover {
+  background: #fafafa;
+  border-color: #b33a3a;
+}
+
+.viewCourseButton {
+  background: #f5f5f7;
+  color: #0071e3;
+}
+
+.viewCourseButton:hover {
+  background: #e5e5e7;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #fafafc;
+  border-radius: 32px;
+  border: 1px solid #f0f0f0;
+}
+
+.emptyIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #86868b;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+}
+
+.emptyState h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  color: #1d1d1f;
+}
+
+.emptyState p {
+  color: #86868b;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f0f0f0;
+  border-top-color: #0071e3;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading p {
+  color: #86868b;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Access Denied */
+.accessDenied {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #fafafc;
+}
+
+.accessMessage {
+  text-align: center;
+  padding: 3rem;
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f0f0f0;
+  max-width: 400px;
+}
+
+.accessMessage svg {
+  color: #86868b;
+  margin-bottom: 1.5rem;
+}
+
+.accessMessage h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #1d1d1f;
+}
+
+.accessMessage p {
+  color: #86868b;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .adminContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .searchContainer {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .statsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .statusContainer {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+
+  .cardContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contactInfo {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .approveButton,
+  .rejectButton,
+  .viewCourseButton {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, .statCard, .applicationCard {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar */
+.applicationsList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.applicationsList::-webkit-scrollbar-track {
+  background: #f5f5f7;
+  border-radius: 20px;
+}
+
+.applicationsList::-webkit-scrollbar-thumb {
+  background: #c0c0c5;
+  border-radius: 20px;
+}
+
+.applicationsList::-webkit-scrollbar-thumb:hover {
+  background: #86868b;
+}

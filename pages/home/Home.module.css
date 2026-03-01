@@ -1,0 +1,217 @@
+
+.homeContainer {
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+.homeContainer > * {
+  margin-bottom: 50px; /* расстояние между секциями */
+}
+
+.homeContainer > *:last-child {
+  margin-bottom: 0; /* убираем отступ у последней секции */
+}
+
+.progressSection {
+  margin-top: 60px;
+}
+
+.sectionTitle {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 600;
+  margin-bottom: clamp(25px, 3vw, 35px);
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+.progressGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: clamp(20px, 3vw, 35px);
+  margin: 0 auto;
+}
+
+.progressCard {
+  position: relative;
+  min-height: clamp(250px, 30vw, 280px);
+  background: linear-gradient(
+    135deg,
+    rgba(93, 69, 253, 0.9),
+    rgba(30, 20, 100, 0.85)
+  );
+  border-radius: clamp(16px, 2vw, 24px);
+  padding: clamp(20px, 3vw, 30px);
+  color: white;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 16px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progressCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.progressCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.progressCard:hover::before {
+  left: 100%;
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.metaBadge {
+  background: rgba(255, 255, 255, 0.95);
+  color: #5d45fd;
+  padding: clamp(6px, 1.5vw, 8px) clamp(12px, 2vw, 16px);
+  border-radius: 100px;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cardTitle {
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cardSubtitle {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-weight: 400;
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.progressBar {
+  width: 100%;
+  height: clamp(10px, 2vw, 12px);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: auto;
+  backdrop-filter: blur(5px);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #fff, #e6e6ff);
+  border-radius: 12px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(93, 69, 253, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.cardFooter {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  opacity: 0.85;
+  margin-top: auto;
+  font-weight: 500;
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 480px) {
+  .progressSection {
+    margin-top: 40px;
+  }
+  
+  .progressGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .progressCard {
+    min-height: 220px;
+    padding: 20px;
+  }
+}
+
+/* Улучшения для планшетов */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .progressGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Skeleton loader */
+.skeletonLoader {
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.skeletonLoader:last-child {
+  width: 60%;
+}
+
+/* Анимация появления карточек */
+.progressCard {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.progressCard:nth-child(1) { animation-delay: 0.1s; }
+.progressCard:nth-child(2) { animation-delay: 0.2s; }
+.progressCard:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
